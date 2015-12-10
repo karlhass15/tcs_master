@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/consciousshopperdb');
+//mongoose.connect('mongodb://localhost/consciousshopperdb');
 mongoose.model('Store',
     new Schema({"name": String,
                 "address": String,

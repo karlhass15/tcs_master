@@ -6,11 +6,11 @@ module.exports = function(grunt){
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             client: {
-                src: 'client/scripts/app.js',
+                src: 'client/scripts/user.js',
                 dest: 'server/public/assets/scripts/app.min.js'
             },
             admin: {
-                src: 'client/scripts/admin.js',
+                src: 'client/scripts/login.js',
                 dest: 'server/public/assets/scripts/admin.min.js'
             },
             controller1: {
@@ -32,8 +32,7 @@ module.exports = function(grunt){
             html: {
                 expand: true,
                 cwd: "client",
-                src: ["views/index.html",
-                "views/addstore.html"],
+                src: "views/*.html",
                 dest: "server/public/assets/"
             },
 
