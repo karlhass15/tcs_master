@@ -5,7 +5,7 @@ var path = require('path');
 
 
 adminRouter.get('/*', function(req, res){
-    var file = req.params[0] || "views/admin.html";
+    var file = req.params[0] || "assets/views/admin.html";
     res.sendFile(path.join(__dirname, "../public/", file))
 });
 

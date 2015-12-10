@@ -32,7 +32,7 @@ module.exports = function(grunt){
             html: {
                 expand: true,
                 cwd: "client",
-                src: "views/index.html",
+                src: "views/*.html",
                 dest: "server/public/assets/"
 
             },
