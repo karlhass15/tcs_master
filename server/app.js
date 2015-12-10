@@ -3,7 +3,6 @@ var app = express();
 var path = require('path');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var passport = require('passport');
 var passport = require('./strategies/user');
 var session = require('express-session');
 var localStrategy = require('passport-local');
@@ -21,10 +20,10 @@ app.use(session({
     cookie: {maxAge:6000, secure: false}
 }));
 
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(passport.initalize());
+app.use(passport.initialize());
 app.use(passport.session());
 
 var mongoURI = "mongodb://localhost:27017/consciousshopperdb";

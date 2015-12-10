@@ -1,6 +1,7 @@
 var express = require('express');
 var adminRouter = express.Router();
 var path = require('path');
+var passport = require('passport');
 
 
 
