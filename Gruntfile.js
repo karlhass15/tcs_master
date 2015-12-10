@@ -32,9 +32,9 @@ module.exports = function(grunt){
             html: {
                 expand: true,
                 cwd: "client",
-                src: "views/index.html",
+                src: ["views/index.html",
+                "views/addstore.html"],
                 dest: "server/public/assets/"
-
             },
 
             style: {
