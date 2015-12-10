@@ -28,7 +28,7 @@ $(document).ready(function() {
         //POST storeInfo to Mongo
         $.ajax({
             type: "POST",
-            url: "/data",
+            url: "/addStore",
             data: storeInfo,
             success: function(data){
 
