@@ -1,10 +1,12 @@
 var express = require('express');
 var router = express.Router();
 var path = require('path');
-var admin = require('./admin');
+var login = require('./login');
+var register = require('./register');
 
 
-router.use('/admin', admin);
+router.use('/login', login);
+router.use('/register', register);
 
 
 router.get("/*", function (req, res) {

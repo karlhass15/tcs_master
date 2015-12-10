@@ -5,6 +5,7 @@
 2 info using npm@3.3.9
 3 info using node@v5.0.0
 4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+<<<<<<< HEAD
 5 info lifecycle tcs_master@1.0.0~prestart: tcs_master@1.0.0
 6 silly lifecycle tcs_master@1.0.0~prestart: no script for prestart, continuing
 7 info lifecycle tcs_master@1.0.0~start: tcs_master@1.0.0
@@ -42,3 +43,4 @@
 23 error     npm owner ls tcs_master
 23 error There is likely additional logging output above.
 24 verbose exit [ 1, true ]
+=======
