@@ -12,8 +12,8 @@ adminRouter.get('/', function(req, res){
 
 adminRouter.post('/',
     passport.authenticate('local', {
-        successRedirect: '/views/admin.html',
-        failureRedirect: '/views/failure.html'
+        successRedirect: '/assets/views/admin.html',
+        failureRedirect: '/assets/views/failure.html'
     })
 );
 
