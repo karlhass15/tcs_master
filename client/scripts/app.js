@@ -14,17 +14,16 @@ $(document).ready(function() {
             storeInfo[field.name] = field.value;
         });
 
+        //Taking the checklist and building it into an array
         var objectBuilder = $('input:checkbox:checked.group1').map(function () {
             return this.value;
         }).get();
 
-        console.log("This is the value of objectBuilder: ", objectBuilder);
-
+        //Taking the array and converting it into an array of objects. This will facilitate database searching
         for (var i=0; i<objectBuilder.length; i++){
             categories.push({'category': objectBuilder[i]});
         }
 
-        console.log("This is the categories Array: ", categories);
 
         storeInfo.categories = categories;
 
