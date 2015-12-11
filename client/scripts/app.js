@@ -28,36 +28,39 @@ $(document).ready(function() {
 
         storeInfo.categories = categories;
 
+        //Geocode the address
+        geocoder.geocode({'address': storeInfo.address}, function(results, status){
+            if (status == google.maps.GeocoderStatus.OK){
+                var latitude=results[0].geometry.location.lat();
+                var longitude=results[0].geometry.location.lng();
+                var latlong = [];
+                latlong.push(latitude);
+                latlong.push(longitude);
+                storeInfo.latlong = latlong;
+                postStore();
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+
         $(".appendDom").empty();
         $(this).find("input[type=text]").val("");
         $(this).find("textarea").val("");
         $(this).find("input[type=checkbox]").removeAttr('checked');
 
 
-        //Geocode the address
-
-        geocoder.geocode({'address': storeInfo.address}, function(results, status){
-            if (status == google.maps.GeocoderStatus.OK){
-                storeInfo.latlong = results;
-                var latitude=results[0].geometry.location.lat();
-                var longitude=results[0].geometry.location.lng();
-                console.log("These are the results from the geocode: ", results);
-                console.log("Latitude: ", latitude);
-                console.log("Longitude: ", longitude);
-            } else {
-                alert("Geocode was not successful for the following reason: " + status);
-            }
-        });
 
         //POST storeInfo to Mongo
-        $.ajax({
-            type: "POST",
-            url: "/addStore",
-            data: storeInfo,
-            success: function(data){
+        var postStore = function(){
+            $.ajax({
+                type: "POST",
+                url: "/addStore",
+                data: storeInfo,
+                success: function(data){
 
-            }
-        });
+                }
+            });
+        }
 
     }
 

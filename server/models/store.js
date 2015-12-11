@@ -7,6 +7,7 @@ mongoose.model('Store',
                 "address": String,
                 "description": String,
                 "categories": Array,
+                "latlong": Array,
                 "website": String,
                 "image": String},
                 {collection: 'stores'}));
