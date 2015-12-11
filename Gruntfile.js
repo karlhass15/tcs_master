@@ -26,7 +26,7 @@ module.exports = function(grunt){
                 src: [
                 //Copied down manually
                 ],
-                "dest": "server/public/vendors/"
+                "dest": "server/public/assets/vendors/"
             },
 
             html: {
