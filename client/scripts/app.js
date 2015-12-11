@@ -2,6 +2,32 @@ $(document).ready(function() {
 
     $("#addStoreForm").submit(addStore);
 
+
+    //CategoriesTab and informationTab can be combined if we want the same naming convention for both (Tab instead of categoriesTab, etc.
+    $('#categoriesTab a').click(function (e) {
+        if($(this).parent('li').hasClass('active')){
+            $( $(this).attr('href') ).hide();
+        }
+        else {
+            e.preventDefault();
+            $(this).tab('show');
+        }
+    });
+
+    $('#informationTab a').click(function (e) {
+        if($(this).parent('li').hasClass('active')){
+            $( $(this).attr('href') ).hide();
+        }
+        else {
+            e.preventDefault();
+            $(this).tab('show');
+        }
+    });
+
+    //$('#goods').tab('show'); // Select tab by name
+    //$('#ethicalStandard').tab('show'); // Select tab by name
+
+
 });
 
     function addStore(){
