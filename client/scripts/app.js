@@ -8,14 +8,23 @@ $(document).ready(function() {
         event.preventDefault();
 
         var storeInfo = {};
+        var categories = [];
 
         $.each($(this).serializeArray(), function (i, field) {
             storeInfo[field.name] = field.value;
         });
 
-        var categories = $('input:checkbox:checked.group1').map(function () {
+        var objectBuilder = $('input:checkbox:checked.group1').map(function () {
             return this.value;
         }).get();
+
+        console.log("This is the value of objectBuilder: ", objectBuilder);
+
+        for (var i=0; i<objectBuilder.length; i++){
+            categories.push({'category': objectBuilder[i]});
+        }
+
+        console.log("This is the categories Array: ", categories);
 
         storeInfo.categories = categories;
 

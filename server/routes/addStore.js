@@ -20,4 +20,14 @@ router.post('/', function(req,res){
     });
 });
 
+router.get('/', function(req, res){
+    console.log("Here is the req: ", req);
+    Store.find({$and: [{address: "123 Fake Street"}, {categories: {$elemMatch: {category : "Eco-Friendly"}}}]}, function(err, data){
+        if (err){
+            console.log("Error in the query!: ", err);
+        }
+        res.send(data);
+    });
+});
+
 module.exports = router;
