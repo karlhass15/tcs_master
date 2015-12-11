@@ -6,7 +6,7 @@ module.exports = function(grunt){
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             client: {
-                src: 'client/scripts/user.js',
+                src: 'client/scripts/*.js',
                 dest: 'server/public/assets/scripts/app.min.js'
             },
             admin: {
