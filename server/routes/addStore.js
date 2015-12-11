@@ -11,6 +11,7 @@ router.post('/', function(req,res){
         "address" : req.body.address,
         "description" : req.body.description,
         "categories" : req.body.categories,
+        "latlong" : req.body.latlong,
         "website" : req.body.website,
         "image" : req.body.image
     });
