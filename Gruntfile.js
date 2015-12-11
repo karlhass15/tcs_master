@@ -16,6 +16,10 @@ module.exports = function(grunt){
             controller1: {
                 src: 'client/scripts/controllers/ContactFormController.js',
                 dest: 'server/public/assets/scripts/controllers/ContactFormController.min.js'
+            },
+                map: {
+                src: 'client/scripts/map.js',
+                dest: 'server/public/assets/scripts/map.min.js'
             }
 
         },
@@ -24,7 +28,7 @@ module.exports = function(grunt){
                 expand: true,
                 cwd: 'node_modules',
                 src: [
-                //Copied down manually
+                    //Copied down manually
                 ],
                 "dest": "server/public/vendors/"
             },
@@ -39,7 +43,7 @@ module.exports = function(grunt){
             style: {
                 expand: true,
                 cwd: "client",
-                src: 'styles/style.css',
+                src: 'styles/*.css',
                 dest: 'server/public/assets/'
             }
 
