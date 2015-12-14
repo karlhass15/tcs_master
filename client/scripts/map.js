@@ -8,53 +8,20 @@ $(document).ready(function(){
 });
 
 
-//var getCurrentLocation = function() {
-//    //var map = new google.maps.Map(document.getElementById('map'), {
-//    //    center: {lat: -34.397, lng: 150.644},
-//    //    zoom: 6
-//    //});
-//    //var infoWindow = new google.maps.InfoWindow({map: map});
-//
-//    // Try HTML5 geolocation.
-//    if (navigator.geolocation) {
-//        navigator.geolocation.getCurrentPosition(function(position) {
-//            myLatLng = {
-//                lat: position.coords.latitude,
-//                lng: position.coords.longitude
-//            };
-//
-//            infoWindow.setPosition(myLatLng);
-//            infoWindow.setContent('Location found.');
-//            map.setCenter(myLatLng);
-//        }, function() {
-//            handleLocationError(true, infoWindow, map.getCenter());
-//        });
-//    } else {
-//        // Browser doesn't support Geolocation
-//        handleLocationError(false, infoWindow, map.getCenter());
-//    }
-//};
-//
-//function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-//    infoWindow.setPosition(pos);
-//    infoWindow.setContent(browserHasGeolocation ?
-//        'Error: The Geolocation service failed.' :
-//        'Error: Your browser doesn\'t support geolocation.');
-//}
-
 //Function to find the store
 var findStore = function(){
+    console.log("The location data being sent to the db as search criteria: ", myLatLng);
     $.ajax({
         type: "GET",
         url: "/addStore",
         data: myLatLng,
         success: function(data){
-            var latlong = data[0].latlong;
-            var latitude = parseFloat(latlong[0]);
-            var longitude = parseFloat(latlong[1]);
-            varLatLong.lat = latitude;
-            varLatLong.lng = longitude;
-            initMap();
+            console.log("The data response from the db: ", data);
+            //var latlong = data[0].latlong;
+            //var latitude = parseFloat(latlong[0]);
+            //var longitude = parseFloat(latlong[1]);
+            //varLatLong.lat = latitude;
+            //varLatLong.lng = longitude;
         }
     });
 };
@@ -93,7 +60,7 @@ var contentString =
 
 
 var getCurrentLocation = function() {
-    var myLatLng = {};
+    myLatLng = {};
 
     //Geolocation to get the current location
     if (navigator.geolocation) {
@@ -103,35 +70,24 @@ var getCurrentLocation = function() {
             console.log("The latitude location: ", myLatLng.lat);
             console.log("The longitude location: ", myLatLng.lng);
             console.log("The variable LatLng: ", myLatLng);
+            findStore();
             initMap(myLatLng);
         });
     } else {
-        console.log("There was an error with the position geolocation initialization.");
+        //Geolocation isn't supported by the browser
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+
+
+    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+        infoWindow.setPosition(pos);
+        infoWindow.setContent(browserHasGeolocation ?
+            'Error: The Geolocation service failed.' :
+            'Error: Your browser doesn\'t support geolocation.');
     }
 }
-            //var pos = {
-            //    lat: position.coords.latitude,
-            //    lng: position.coords.longitude
-            //};
 
-    //        infoWindow.setPosition(myLatLng);
-    //        infoWindow.setContent('Location found.');
-    //        map.setCenter(myLatLng);
-    //    }, function() {
-    //        handleLocationError(true, infoWindow, map.getCenter());
-    //    });
-    //} else {
-    //    // Browser doesn't support Geolocation
-    //    handleLocationError(false, infoWindow, map.getCenter());
-    //}
-    //
-    //
-    //function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-    //    infoWindow.setPosition(pos);
-    //    infoWindow.setContent(browserHasGeolocation ?
-    //        'Error: The Geolocation service failed.' :
-    //        'Error: Your browser doesn\'t support geolocation.');
-    //}
+//Map initialization function
 var initMap = function(myLocation){
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
