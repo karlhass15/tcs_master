@@ -26,8 +26,8 @@ router.post('/', function(req,res){
 //Search Criteria for a hard-coded category. Do we want to move this to a new route? Need to add variables for geolocation and entered
 //category search criteria
 router.get('/', function(req, res){
-    console.log("Here is the req: ", req);
-    Store.find({$and: [{address: "123 Fake Street"}, {categories: {$elemMatch: {category : "Eco-Friendly"}}}]}, function(err, data){
+    console.log("Here is the req.body: ", req.body);
+    Store.find({$and: [{address: "3736 17th Ave S, Minneapolis, MN 55407"}, {categories: {$elemMatch: {category : "Eco-Friendly"}}}]}, function(err, data){
         if (err){
             console.log("Error in the query!: ", err);
         }
