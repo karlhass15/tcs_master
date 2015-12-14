@@ -7,7 +7,7 @@ var passport = require('./strategies/user');
 var session = require('express-session');
 var localStrategy = require('passport-local');
 
-
+var contact = require('./routes/contact');
 var index = require('./routes/index');
 var store =  require('./routes/addStore');
 
@@ -38,7 +38,7 @@ mongoDB.on('error', function(err){
 mongoDB.once('open', function(){
     console.log("Connected to Mongo, meow!");
 });
-
+app.use('/contact', contact);
 app.use('/addStore', store);
 app.use('/', index);
 
