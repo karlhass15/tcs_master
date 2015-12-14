@@ -4,27 +4,28 @@ $(document).ready(function(){
         event.preventDefault();
         var values = {};
 
-        //$.each($(this).serializeArray(), function(i, field){
-        //    //do I need to change field.value????????
-        //    values[field.name] = field.value;
-        //});
     });
-
+//submit button in email.html
     $("#contactForm").submit(addContact);
+
 });
 
+
+//function adds a persons info and message to database
 function addContact() {
     event.preventDefault();
     var values = {};
 
+    //clears form in email.html
     $.each($(this).serializeArray(), function (i, field) {
         values[field.name] = field.value;
 
     });
-    //clearing the fields after submit
+    //clearing the fields after submit in email.html
     $(this).find("input[type=text]").val("");
     $(this).find("textarea").val("");
 
+    //sends addedContact's info to database
     $.ajax({
         type: "POST",
         url: "/contact",
@@ -34,18 +35,5 @@ function addContact() {
             console.log('post made it');
         }
     });
-    //added from angular functions used to send????????????
-//    function emailSent() {
-//        this.sendMail = function () {
-//console.log("email fired");
-//            var data = ({
-//                name: this.name,
-//                email: this.email,
-//                message: this.message
-//            });
-//console.log(email);
-//        }
-//
-//    }
 }
 
