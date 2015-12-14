@@ -6,20 +6,24 @@ module.exports = function(grunt){
                 banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
             },
             client: {
-                src: 'client/scripts/*.js',
+                src: 'client/scripts/app.js',
                 dest: 'server/public/assets/scripts/app.min.js'
             },
             admin: {
-                src: 'client/scripts/login.js',
+                src: 'client/scripts/admin.js',
                 dest: 'server/public/assets/scripts/admin.min.js'
             },
-            controller1: {
-                src: 'client/scripts/controllers/ContactFormController.js',
-                dest: 'server/public/assets/scripts/controllers/ContactFormController.min.js'
-            },
-                map: {
+            map: {
                 src: 'client/scripts/map.js',
                 dest: 'server/public/assets/scripts/map.min.js'
+            },
+            search: {
+                src: 'client/scripts/search.js',
+                dest: 'server/public/assets/scripts/search.min.js'
+            },
+            email: {
+                src: 'client/scripts/email.js',
+                dest: 'server/public/assets/scripts/email.min.js'
             }
 
         },
