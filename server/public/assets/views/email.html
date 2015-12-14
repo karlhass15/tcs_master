@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <!--Link-->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/style.css">
+
+    <!--Scripts-->
+    <script type="text/javascript" src="/assets/vendors/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/scripts/app.min.js"></script>-->
+    <script type="text/javascript" src="/assets/scripts/email.min.js"></script>
+
+
+</head>
+
+<body>
+<div class ="about">
+    <h2>About Conscious Shopper</h2>
+    <p>Conscious shopper the search app for local responsible shopping </p>
+</div>
+    <div id="contact">
+
+       <form id="contactForm" method="POST" action="/contact">
+        <label>Name:</label>
+        <input type="text" placeholder="name" name="name">
+        <label>Email:</label>
+        <input type="text" placeholder="email" name="email">
+        <label>Message:</label>
+                <textarea type="text" value="message" name="message"
+                          required></textarea>
+        <button type="submit btn">Submit</button>
+      </form>
+    </div>
+
+</body>
+
+
+</html>

@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    console.log("Testing the doc reaady fire!");
     $(".body").on("click", "#searchstores", function(){
         SearchStores();
         console.log("Click?");

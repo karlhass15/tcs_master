@@ -9,7 +9,8 @@ mongoose.model('Store',
                 "categories": Array,
                 "latlong": Array,
                 "website": String,
-                "image": String},
+                "image": String,
+                "loc": Object},
                 {collection: 'stores'}));
 
 module.exports = mongoose.model('Store');
