@@ -9,10 +9,10 @@ module.exports = function(grunt){
                 src: 'client/scripts/*.js',
                 dest: 'server/public/assets/scripts/app.min.js'
             },
-            admin: {
-                src: 'client/scripts/login.js',
-                dest: 'server/public/assets/scripts/admin.min.js'
-            },
+            //admin: {
+            //    src: 'client/scripts/login.js',
+            //    dest: 'server/public/assets/scripts/admin.min.js'
+            //},
             controller1: {
                 src: 'client/scripts/controllers/ContactFormController.js',
                 dest: 'server/public/assets/scripts/controllers/ContactFormController.min.js'

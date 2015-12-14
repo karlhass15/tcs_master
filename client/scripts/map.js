@@ -1,3 +1,36 @@
+$(document).ready(function() {
+
+    $('#navMenu').click(function() {
+        $(this)
+            .stop(true, false)
+            .animate({
+                bottom: 150
+            }, 600);
+    });
+
+    //$('#navMenu').toggle(
+    //    function() {
+    //        $(this)
+    //            .stop(true, false)
+    //            .animate({
+    //            bottom: 150
+    //        }, 600);
+    //    },
+    //    function() {
+    //        $(this).stop(true, false)
+    //            .animate({
+    //            bottom: -150
+    //        }, 600);
+    //
+    //});
+
+
+
+
+    initMap();
+
+});
+
 function initMap() {
     var myLatLng = {lat: 44.9778, lng: -93.2650};
 

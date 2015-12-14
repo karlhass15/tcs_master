@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'ostrich';
+    src: url('ostrich-regular.ttf')
+}
+
+@font-face {
+    font-family: 'ostrichBlack';
+    src: url('ostrich-black.ttf')
+}
+
 html, body
 {
     height: 100%;
@@ -5,6 +15,146 @@ html, body
     padding: 0;
 }
 
-#map {
-    height: 70%;
+#map{
+    height: 82%;
+}
+
+
+
+
+#category {
+    position: relative;
+    display: inline-block;
+    align-content: center;
+    width: 24%;
+    height: 100%;
+    background-repeat: no-repeat; /* for vertical repeat */
+    background-repeat: no-repeat; /* for horizontal repeat */
+    background-image: url('/imageIcons/cartIcon.svg');
+    background-position: center;
+    z-index: 1;
+}
+
+#category a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#store {
+    position: relative;
+    display: inline-block;
+    align-content: center;
+    width: 24%;
+    height: 100%;
+    background-repeat: no-repeat; /* for vertical repeat */
+    background-repeat: no-repeat; /* for horizontal repeat */
+    background-image: url('/imageIcons/checkmarkIcon.svg');
+    background-position: center;
+    z-index: 1;
+}
+
+#store a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#mapNavigation {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 24%;
+    height: 100%;
+    background-repeat: no-repeat; /* for vertical repeat */
+    background-repeat: no-repeat; /* for horizontal repeat */
+    background-image: url('/imageIcons/mapIcon.svg');
+    background-position: center;
+    z-index: 1;
+}
+
+#mapNavigation a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+#information {
+    position: relative;
+    display: inline-block;
+    align-content: center;
+    width: 24%;
+    height: 100%;
+    background-repeat: no-repeat; /* for vertical repeat */
+    background-repeat: no-repeat; /* for horizontal repeat */
+    background-image: url('/imageIcons/informationIcon.svg');
+    background-position: center;
+    z-index: 1;
+}
+
+#information a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    background-color: #cccc00;
+    font-family: 'ostrichBlack';
+    color: white;
+    font-size: 48pt;
+    padding-left: 10px;
+    padding-top: 10px;
+    border-bottom: 10px solid #333333;
+    /*margin-bottom: 10px;*/
+}
+
+
+.container {
+    width: 100%;
+}
+
+#navMenu{
+    display: block;
+    position: relative;
+    /*bottom: 0;*/
+    z-index: 1;
+    bottom: 50px;
+    /*background-color: #4a4a4c;*/
+    /*height: 100px;*/
+    /*width:100%;*/
+    /*border-radius: 15%;*/
+}
+
+#menuTab{
+    display: block;
+    margin-left: 5%;
+    /*margin-bottom: -1%;*/
+    background-color: #4a4a4c;
+    color: white;
+    font-family: 'ostrichBlack';
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+    width:50px;
+    padding-top: 15px;
+    /*border-radius: 30% 30% 0 0;*/
+    z-index: 1;
+}
+
+#navBar{
+    /*display: none;*/
+    position: relative;
+    /*bottom: -100;*/
+
+    /*bottom: 0;*/
+    background-color: #4a4a4c;
+    height: 100px;
+    width:100%;
+}
+
+#tabLinks{
+    background-color: #4a4a4c;
+    height: 100px;
+
 }
