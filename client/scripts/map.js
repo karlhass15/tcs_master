@@ -92,7 +92,7 @@ var initMap = function(myLocation, storesFound){
     storeContent = [];
     var infoWindow = new google.maps.InfoWindow(), otherMarker, i;
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('mapContainer'), {
         zoom: 12,
         center: myLocation
     });
