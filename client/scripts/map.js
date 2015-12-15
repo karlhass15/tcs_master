@@ -12,13 +12,38 @@
 
 $(document).ready(function(){
 
+    //$('#navMenu').click(function() {
+    //    $(this)
+    //        .stop(true, false)
+    //        .animate({
+    //            bottom: 150
+    //        }, 600);
+    //});
+
+    var flag = 1;
+
     $('#navMenu').click(function() {
+        if(flag == 1){
         $(this)
             .stop(true, false)
             .animate({
                 bottom: 150
             }, 600);
+
+            flag = 0;
+        } else {
+            $(this)
+                .stop(true, false)
+                .animate({
+                    bottom: 50
+                }, 600);
+            flag = 1;
+        }
+
+        //return false;
     });
+
+
 
     getCurrentLocation();
     //initMap();
@@ -107,7 +132,7 @@ var getCurrentLocation = function() {
 
 //Map initialization function
 var initMap = function(myLocation){
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('mapContainer'), {
         zoom: 9,
         center: myLocation //myLatLng
     });
