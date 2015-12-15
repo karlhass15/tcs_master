@@ -1,14 +1,7 @@
-//$(document).ready(function() {
-//
-//
-//
-//    initMap();
-//
-//});
+var myLatLng = {};
+var storesFound = [];
+var storeContent = [];
 
-//function initMap() {
-//    var varLatLong = {};
-//    var myLatLng = {};
 
 $(document).ready(function(){
 
@@ -46,12 +39,11 @@ $(document).ready(function(){
 
 
     getCurrentLocation();
-    //initMap();
-    //findStore();
+
 });
 
 
-//Function to find the store
+//Function to find the store -- called within getCurrentLocation
 var findStore = function(){
     console.log("The location data being sent to the db as search criteria: ", myLatLng);
     $.ajax({
@@ -60,48 +52,15 @@ var findStore = function(){
         data: myLatLng,
         success: function(data){
             console.log("The data response from the db: ", data);
-            //var latlong = data[0].latlong;
-            //var latitude = parseFloat(latlong[0]);
-            //var longitude = parseFloat(latlong[1]);
-            //varLatLong.lat = latitude;
-            //varLatLong.lng = longitude;
+            storesFound = data;
+            console.log("The storesFound: ", storesFound);
+            initMap(myLatLng, storesFound);
+            return storesFound;
         }
     });
 };
 
-var testObj = {
-    //_id : ObjectId("566b2e0ed64e757405c414dd"), obect id seems to break it
-    name : "Big Mall",
-    address : " 60 E Broadway, Bloomington, MN 55425",
-    description : ";sdlkjf;alskdjf",
-    website : "http://www.mallofamerica.com/",
-    image : "http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png",
-    latlong : [
-        "44.8543221",
-        "-93.24264970000002"
-    ],
-    __v : 0
-};
-
-var contentString =
-    '<div class="container">' +
-
-    '<div class="col-xs-4">' +
-    '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
-    '</div>' +
-
-    '<div class="col-xs-8">' +
-    '<h4>'+testObj.name+'</h4>' +
-    '<h5>' + testObj.description + '</h5>'+
-    '<h5>Distance</h5>' +
-        //'<h5><a href=" '+var+' "></a>Website</h5>' +
-    '<h5>Directions</h5>' +
-    '</div>'+
-
-
-    '</div>';
-
-
+//Geolocation function to get current location
 var getCurrentLocation = function() {
     myLatLng = {};
 
@@ -110,11 +69,8 @@ var getCurrentLocation = function() {
         navigator.geolocation.getCurrentPosition(function (position) {
             myLatLng.lat = parseFloat(position.coords.latitude);
             myLatLng.lng = parseFloat(position.coords.longitude);
-            console.log("The latitude location: ", myLatLng.lat);
-            console.log("The longitude location: ", myLatLng.lng);
             console.log("The variable LatLng: ", myLatLng);
             findStore();
-            initMap(myLatLng);
         });
     } else {
         //Geolocation isn't supported by the browser
@@ -130,42 +86,74 @@ var getCurrentLocation = function() {
     }
 }
 
-//Map initialization function
-var initMap = function(myLocation){
+
+
+//Map initialization function -- called within findStore function
+var initMap = function(myLocation, storesFound){
+    storeContent = [];
+    var infoWindow = new google.maps.InfoWindow(), otherMarker, i;
+
     var map = new google.maps.Map(document.getElementById('mapContainer'), {
-        zoom: 9,
-        center: myLocation //myLatLng
+        zoom: 12,
+        center: myLocation
+
     });
 
     var marker = new google.maps.Marker({
-        position: myLocation,  //myLatLng
+        position: myLocation,
         map: map,
-        title: 'Hello World!',
+        title: 'You Are Here',
 
     });
     marker.addListener('click', function() {
         console.log("center");
     });
+    console.log("What is the storesFound?: ", storesFound);
+    //Iteration through returned stores to create markers on the map
+    for (var i = 0; i < storesFound.length; i++) {
+        console.log("Processing the marker data: ", storesFound[i]);
 
 
-    var otherMarker = new google.maps.Marker({
-        position: {lat: 44.8548689, lng: -93.2444035},
-        map: map,
-        title: 'Hi mall!',
-        icon : 'http://maps.google.com/mapfiles/ms/micons/purple-dot.png',
+        var otherMarker = new google.maps.Marker({
+            position: new google.maps.LatLng(storesFound[i].latlong[0], storesFound[i].latlong[1]),
+            map: map,
+            title: storesFound[i].name,
+            //will likely need to iterate through an icon counter
+            icon: 'http://maps.google.com/mapfiles/ms/micons/purple-dot.png',
 
-    });
-    otherMarker.addListener('click', function() {
-        console.log("mall");
-        infowindow.open(map, otherMarker);
-    });
+        });
 
+        //Setting up the store content in an array for easy reference to the popup creation below
+        var storeData = setContentstring(storesFound[i]);
+        storeContent.push(storeData);
+        console.log("The storeContent is: ", storeContent);
 
-    var infowindow = new google.maps.InfoWindow({
-        content : contentString
-    });
+    //creating the popup window for each marker
+        google.maps.event.addListener(otherMarker, 'click', (function (otherMarker, i) {
+            console.log("click!");
+            return function(){
+                infoWindow.setContent(storeContent[i]);
+                infoWindow.open(map, otherMarker);
+            }
+        })(otherMarker, i));
 
-
-
+    }
     /////end init map
 }
+
+var setContentstring = function(store){
+    contentString =
+        '<div class="container">' +
+        '<div class="col-xs-4">' +
+        '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+        '</div>' +
+        '<div class="col-xs-8">' +
+        '<h4>'+store.name+'</h4>' +
+        '<h5>' + store.description + '</h5>'+
+        '<h5>Distance</h5>' +
+            //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
+        '<h5>Directions</h5>' +
+        '</div>'+
+        '</div>';
+    return contentString;
+};
