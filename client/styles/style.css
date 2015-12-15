@@ -8,23 +8,37 @@
     src: url('ostrich-black.ttf')
 }
 
-html {
+/*html {*/
+    /*height: 100%;*/
+/*}*/
+
+/*body{*/
+    /*height: inherit;*/
+/*}*/
+
+
+html, body
+{
     height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-body{
-    height: inherit;
+#mapContainer{
+    height: 80vh;
+    overflow: hidden;
 }
+
 
 header {
     background-color: #cccc00;
     font-family: 'ostrichBlack';
     color: white;
-    font-size: 15vmin;
-    padding-left: 10px;
+    font-size: 13vh;
+    padding-left: 3%;
     padding-top: 10px;
     border-bottom: 10px solid #333333;
-    height: 25vmin;
+    height: 20vh;
     /*margin-bottom: 10px;*/
 }
 
@@ -45,7 +59,7 @@ header {
 }
 
 #homePageBG{
-    position: fixed;
+    /*position: fixed;*/
     display: inline-block;
     background-image: url('/imageIcons/homePageBG.png');
     background-repeat: no-repeat; /* for vertical repeat */
@@ -117,7 +131,7 @@ ul {
 }
 
 .container {
-    width: 95%;
+    width: 100%;
 }
 
 
@@ -245,6 +259,51 @@ ul {
     background-color: #4a4a4c;
     height: 100px;
     width:100%;
+}
+
+#navBarMap{
+    /*display: none;*/
+    position: relative;
+    /*bottom: -100;*/
+
+    /*bottom: 0;*/
+    background-color: #4a4a4c;
+    height: 100px;
+    width:100%;
+}
+
+#navMenu{
+    display: block;
+    position: relative;
+    /*bottom: 0;*/
+    z-index: 1;
+    bottom: 50px;
+    margin-bottom: -50px;
+    /*background-color: #4a4a4c;*/
+    /*height: 100px;*/
+    /*width:100%;*/
+    /*border-radius: 15%;*/
+}
+
+#menuTab{
+    display: block;
+    margin-left: 5%;
+    /*margin-bottom: -1%;*/
+    background-color: #4a4a4c;
+    color: white;
+    font-family: 'ostrichBlack';
+    text-align: center;
+    vertical-align: middle;
+    height: 50px;
+    width:50px;
+    padding-top: 15px;
+    /*border-radius: 30% 30% 0 0;*/
+    z-index: 1;
+}
+
+#tabLinks{
+    background-color: #4a4a4c;
+    height: 100px;
 }
 
 #category {

@@ -9,8 +9,6 @@ $(document).ready(function(){
     $("#contactForm").submit(addContact);
 
 });
-
-
 //function adds a persons info and message to database
 function addContact() {
     event.preventDefault();
