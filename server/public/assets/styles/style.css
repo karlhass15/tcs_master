@@ -8,14 +8,23 @@
     src: url('ostrich-black.ttf')
 }
 
+html {
+    height: 100%;
+}
+
+body{
+    height: inherit;
+}
+
 header {
     background-color: #cccc00;
     font-family: 'ostrichBlack';
     color: white;
-    font-size: 48pt;
+    font-size: 15vmin;
     padding-left: 10px;
     padding-top: 10px;
     border-bottom: 10px solid #333333;
+    height: 25vmin;
     /*margin-bottom: 10px;*/
 }
 
@@ -25,12 +34,12 @@ header {
     font-family: 'ostrichBlack';
     color: white;
     text-align: center;
-    font-size: 175pt;
-    line-height: 160pt;
+    font-size: 12vmax;
+    line-height: normal;
     padding-left: 10px;
-    padding-top: 100px;
+    padding-top: 2%;
     border-bottom: 10px solid #333333;
-    height: 550px;
+    /*height: 25vmin;*/
     /*margin-bottom: 50px;*/
     /*margin-top: 50px;*/
 }
@@ -42,7 +51,7 @@ header {
     background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
     /*background-position: center;*/
-    height: 2000px;
+    height: 100%;
     width: 100%;
 }
 
@@ -98,7 +107,6 @@ ul {
     margin-bottom: 3px;
     border-bottom: 2px solid #4a4a4c;
     -webkit-padding-start: 0px;
-
 }
 
 .submitButton{
@@ -139,8 +147,8 @@ ul {
 #goods ul {
     display: block;
     font-family: 'ostrichBlack';
-    font-size: 10pt;
-    line-height: 12pt;
+    font-size: 6vmin;
+    line-height: 8vmin;
     margin: 0;
     /*margin-bottom: 3px;*/
     border-bottom: 4px solid #cccccc;
@@ -156,8 +164,8 @@ ul {
 #ethicalStandard ul {
     display: block;
     font-family: 'ostrichBlack';
-    font-size: 10pt;
-    line-height: 12pt;
+    font-size: 6vmin;
+    line-height: 8vmin;
     margin: 0;
     /*margin-bottom: 3px;*/
     border-bottom: 4px solid #cccccc;
@@ -184,13 +192,17 @@ ul {
     background-color: #ff3366;
     font-family: "ostrichBlack";
     border: 0;
+    height: 15%;
+    margin: 0;
 
 }
 
 .nav-tabs{
     border-bottom: 10px solid #ff3366;
     margin-top: 10px;
-    padding-left: 5px;
+    /*padding-left: 5px;*/
+    height: 15%;
+
 }
 
 .nav-tabs>li>a {
@@ -198,6 +210,8 @@ ul {
     color: white;
     border: 0;
     font-family: "ostrichBlack";
+    height: 15%;
+
 }
 
 .nav-tabs>li {
@@ -216,7 +230,13 @@ ul {
     /*stroke-linejoin: round;*/
 }
 
+/*#informationList{*/
+    /*height: 10%;*/
+/*}*/
 
+/*#informationTab{*/
+    /*height: 10%;*/
+/*}*/
 
 
 #navBar{
@@ -228,16 +248,11 @@ ul {
 }
 
 #category {
-    position: relative;
-    display: inline-block;
-    align-content: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/cartIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/cartIcon.svg');
+
 }
 
 #category a {
@@ -247,17 +262,12 @@ ul {
 }
 
 #store {
-     position: relative;
-     display: inline-block;
-     align-content: center;
-     width: 24%;
-     height: 100%;
-     background-repeat: no-repeat; /* for vertical repeat */
-     background-repeat: no-repeat; /* for horizontal repeat */
-     background-image: url('/imageIcons/checkmarkIcon.svg');
-     background-position: center;
-     z-index: 1;
- }
+    height: 100%;
+    background-repeat: no-repeat; /* for horizontal repeat */
+    background-position: center;
+    background-image: url('/imageIcons/checkmarkIcon.svg');
+
+}
 
 #store a {
     display: inline-block;
@@ -266,16 +276,11 @@ ul {
 }
 
 #map {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/mapIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/mapIcon.svg');
+
 }
 
 #map a{
@@ -285,16 +290,11 @@ ul {
 }
 
 #information {
-    position: relative;
-    display: inline-block;
-    align-content: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/informationIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/informationIcon.svg');
+
 }
 
 #information a{
@@ -303,22 +303,41 @@ ul {
     height: 100%;
 }
 
+.col-xs-6 {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 6vmin;
+}
+
+.col-xs-3 {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 6vmin;
+
+}
+
+.row {
+    margin: 0;
+}
+
 /*///////////Home Page navigation/////////*/
 
 
 #homeCategory {
-    position: relative;
-    display: inline-block;
-    float: left;
-    margin-left: 2.5%;
-    margin-top: 5%;
-    width: 45%;
-    height: 500px;
-    border-radius: 15%;
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*float: left;*/
+    /*margin: 2.5%;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 48vmin;
+    height:50vmin;
+    margin: 1vmin;
+    border-radius: 10%;
     background-color: #4a4a4c;
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-position: top;
-    z-index: 1;
+    /*background-position: top;*/
+    /*z-index: 1;*/
     background-image: url('/imageIcons/cartIcon.svg');
 
 }
@@ -333,24 +352,27 @@ ul {
     text-decoration: none;
     text-align: center;
     vertical-align: bottom;
-    z-index: 2;
-    font-size: 40pt;
+    /*z-index: 2;*/
+    font-size: 5vmin;
     padding-top: 95%;
 }
 
 #homeStore {
-    position: relative;
-    display: inline-block;
-    float: left;
-    margin-left: 2.5%;
-    margin-top: 5%;
-    width: 45%;
-    height: 500px;
-    border-radius: 15%;
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*float: left;*/
+    /*margin: 2.5%;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 48vmin;
+    height:50vmin;
+    margin: 1vmin;
+
+    border-radius: 10%;
     background-color: #4a4a4c;
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-position: top;
-    z-index: 1;
+    /*background-position: top;*/
+    /*z-index: 1;*/
     background-image: url('/imageIcons/checkmarkIcon.svg');
 }
 
@@ -363,23 +385,26 @@ ul {
     color: white;
     text-decoration: none;
     text-align: center;
-    font-size: 40pt;
+    font-size: 5vmin;
     padding-top: 95%;
 }
 
 #homeMap {
-    position: relative;
-    display: inline-block;
-    float: right;
-    margin-right: 2.5%;
-    margin-top: 5%;
-    width: 45%;
-    height: 500px;
-    border-radius: 15%;
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*float: right;*/
+    /*margin: 2.5%;*/
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 48vmin;
+    height: 50vmin;
+    margin: 1vmin;
+
+    border-radius: 10%;
     background-color: #4a4a4c;
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-position: top;
-    z-index: 1;
+    /*background-position: top;*/
+    /*z-index: 1;*/
     background-image: url('/imageIcons/mapIcon.svg');
 
 }
@@ -393,23 +418,27 @@ ul {
     color: white;
     text-decoration: none;
     text-align: center;
-    font-size: 40pt;
+    font-size: 5vmin;
     padding-top: 95%;
 }
 
 #homeInformation {
-    position: relative;
-    display: inline-block;
-    margin-right: 2.5%;
-    margin-top: 5%;
-    float: right;
-    width: 45%;
-    height: 500px;
-    border-radius: 15%;
+    /*position: relative;*/
+    /*display: inline-block;*/
+    /*float: right;*/
+    /*margin: 2.5%;*/
+    padding-left: 5px;
+    padding-right: 5px;
+
+    width: 48vmin;
+    height: 50vmin;
+    margin: 1vmin;
+
+    border-radius: 10%;
     background-color: #4a4a4c;
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-position: top;
-    z-index: 1;
+    /*background-position: top;*/
+    /*z-index: 1;*/
     background-image: url('/imageIcons/informationIcon.svg');
 
 }
@@ -423,7 +452,7 @@ ul {
     color: white;
     text-decoration: none;
     text-align: center;
-    font-size: 40pt;
+    font-size: 5vmin;
     padding-top: 95%;
 }
 
