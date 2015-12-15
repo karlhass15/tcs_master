@@ -27,9 +27,9 @@
 
 <div id="informationList">
     <ul id="informationTab" class="nav nav-tabs">
-        <li class="active"><a href="#about" data-toggle="tab">ABOUT</a></li>
-        <li><a href="#help" data-toggle="tab">HELP</a></li>
-        <li><a href="#createShortcut" data-toggle="tab">CREATE SHORTCUT</a></li>
+        <li class="active col-xs-3"><a href="#about" data-toggle="tab">ABOUT</a></li>
+        <li class="col-xs-3"><a href="#help" data-toggle="tab">HELP</a></li>
+        <li class="col-xs-6"><a href="#createShortcut" data-toggle="tab">CREATE SHORTCUT</a></li>
         <!--<li><a href="#tabs-3">CREATE SHORTCUT</a></li>-->
     </ul>
 
@@ -43,7 +43,31 @@
         </div>
 
         <div class="tab-pane fade" id="createShortcut">
-            <h1>You want an shortcut on your home screen? No problem, here's how: ...</h1>
+            <div class="container">
+            <h1>iPad and iPhone with Safari</h1>
+              <ol>
+                  <li>From the Conscious Shopper app select the bookmark icon</li>
+                  <li>Select ‘add to home screen’ when bookmark options appear</li>
+                  <li>Change the shortcut name to ‘Conscious Shopper’</li>
+                  <li>Conscious shopper shortcut will appear on home screen</li>
+              </ol>
+
+            <h1>Android or iPhone with Chrome</h1>
+                <ol>
+                    <li>From the Conscious Shopper app select the menu button</li>
+                    <li>(three vertical dots next to the URL)</li>
+                    <li>From the menu select ‘add to Home screen’</li>
+                    <li>Conscious shopper shortcut will appear on home screen</li>
+                </ol>
+
+            <h1>Android or iPhone with Firefox</h1>
+                <ol>
+                    <li>From the Conscious Shopper app select the title bar</li>
+                    <li>From the title menu select ‘Bookmarks’</li>
+                    <li>Long Tap the bookmark (hold it for a little longer) and select “Add to Home Screen”</li>
+                    <li>Conscious shopper shortcut will appear on home screen</li>
+                </ol>
+            </div>
         </div>
     </div>
 </div>
@@ -54,11 +78,11 @@
 
 <footer>
 
-    <div id="navBar">
-        <div id="store"><a href="/assets/views/addstore.html"></a></div>
-        <div id="category"><a href="/assets/views/categories.html"></a></div>
-        <div id="map"><a href="/assets/views/map.html"></a></div>
-        <div id="information"><a href="/assets/views/information.html"></a></div>
+    <div id="navBar" class="row">
+        <div id="store" class="col-xs-3"><a href="/assets/views/storelist.html"></a></div>
+        <div id="category" class="col-xs-3"><a href="/assets/views/categories.html"></a></div>
+        <div id="map" class="col-xs-3"><a href="/assets/views/map.html"></a></div>
+        <div id="information" class="col-xs-3"><a href="/assets/views/information.html"></a></div>
 
     </div>
 

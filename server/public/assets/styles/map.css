@@ -23,16 +23,11 @@ html, body
 
 
 #category {
-    position: relative;
-    display: inline-block;
-    align-content: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/cartIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/cartIcon.svg');
+
 }
 
 #category a {
@@ -42,16 +37,11 @@ html, body
 }
 
 #store {
-    position: relative;
-    display: inline-block;
-    align-content: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/checkmarkIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/checkmarkIcon.svg');
+
 }
 
 #store a {
@@ -61,16 +51,11 @@ html, body
 }
 
 #mapNavigation {
-    position: relative;
-    display: inline-block;
-    text-align: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/mapIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/mapIcon.svg');
+
 }
 
 #mapNavigation a{
@@ -80,16 +65,11 @@ html, body
 }
 
 #information {
-    position: relative;
-    display: inline-block;
-    align-content: center;
-    width: 24%;
     height: 100%;
-    background-repeat: no-repeat; /* for vertical repeat */
     background-repeat: no-repeat; /* for horizontal repeat */
-    background-image: url('/imageIcons/informationIcon.svg');
     background-position: center;
-    z-index: 1;
+    background-image: url('/imageIcons/informationIcon.svg');
+
 }
 
 #information a{
