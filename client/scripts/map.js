@@ -1,14 +1,6 @@
-//$(document).ready(function() {
-//
-//
-//
-//    initMap();
-//
-//});
+var myLatLng = {};
+var storesFound = [];
 
-//function initMap() {
-//    var varLatLong = {};
-//    var myLatLng = {};
 
 $(document).ready(function(){
 
@@ -21,8 +13,7 @@ $(document).ready(function(){
     });
 
     getCurrentLocation();
-    //initMap();
-    //findStore();
+
 });
 
 
@@ -35,14 +26,13 @@ var findStore = function(){
         data: myLatLng,
         success: function(data){
             console.log("The data response from the db: ", data);
-            //var latlong = data[0].latlong;
-            //var latitude = parseFloat(latlong[0]);
-            //var longitude = parseFloat(latlong[1]);
-            //varLatLong.lat = latitude;
-            //varLatLong.lng = longitude;
+            storesFound = data;
+            console.log("The storesFound: ", storesFound);
+            return storesFound;
         }
     });
 };
+
 
 var testObj = {
     //_id : ObjectId("566b2e0ed64e757405c414dd"), obect id seems to break it
@@ -122,24 +112,27 @@ var initMap = function(myLocation){
         console.log("center");
     });
 
+    ////////////Marker placement currently not functional///////////
+    for (var i = 0; i < storesFound.length; i++) {
+        var storelocation = {lat: storesFound[i].latlong[0], lng : storesFound[i].latlong[1]};
 
-    var otherMarker = new google.maps.Marker({
-        position: {lat: 44.8548689, lng: -93.2444035},
-        map: map,
-        title: 'Hi mall!',
-        icon : 'http://maps.google.com/mapfiles/ms/micons/purple-dot.png',
+        var otherMarker = new google.maps.Marker({
+            position: storelocation,
+            map: map,
+            title: storesFound[i].name,
+            icon: 'http://maps.google.com/mapfiles/ms/micons/purple-dot.png',
 
-    });
-    otherMarker.addListener('click', function() {
-        console.log("mall");
-        infowindow.open(map, otherMarker);
-    });
+        });
+        otherMarker.addListener('click', function () {
+            console.log("click!");
+            infowindow.open(map, otherMarker);
+        });
 
 
-    var infowindow = new google.maps.InfoWindow({
-        content : contentString
-    });
-
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+    }
 
 
     /////end init map
