@@ -87,6 +87,7 @@ var getCurrentLocation = function() {
 }
 
 
+
 //Map initialization function -- called within findStore function
 var initMap = function(myLocation, storesFound){
     storeContent = [];
@@ -95,6 +96,7 @@ var initMap = function(myLocation, storesFound){
     var map = new google.maps.Map(document.getElementById('mapContainer'), {
         zoom: 12,
         center: myLocation
+
     });
 
     var marker = new google.maps.Marker({
