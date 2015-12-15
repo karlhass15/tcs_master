@@ -1,7 +1,25 @@
-var varLatLong = {};
-var myLatLng = {};
+//$(document).ready(function() {
+//
+//
+//
+//    initMap();
+//
+//});
+
+//function initMap() {
+//    var varLatLong = {};
+//    var myLatLng = {};
 
 $(document).ready(function(){
+
+    $('#navMenu').click(function() {
+        $(this)
+            .stop(true, false)
+            .animate({
+                bottom: 150
+            }, 600);
+    });
+
     getCurrentLocation();
     //initMap();
     //findStore();

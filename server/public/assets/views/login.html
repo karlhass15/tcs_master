@@ -1,22 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title></title>
+
+    <!--Link-->
+    <link rel="stylesheet" href="/assets/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/styles/login.css">
+
+    <!--Scripts-->
+    <script type="text/javascript" src="/assets/vendors/jquery.min.js"></script>
+    <!--<script type="text/javascript" src="/assets/scripts/app.min.js"></script>-->
+    <script type="text/javascript" src="/assets/scripts/login.min.js"></script>
+
 </head>
 <body>
+<div class ="container col-md-4">
+    <header>
+        <div id="pageHeader">Admin Login</div>
+    </header>
+
+
+    <div id="grayBackground">
+
+
 <form action="/login" method="post">
     <h3>Admin Login</h3>
-    Username: <input type="text" name="username"/><br/>
-    Password: <input type="text" name="password"/><br/>
-    <button id="login">Login</button>
+    <input type="text" placeholder="Username" name="username"/><br/>
+    <input type="text" placeholder="Password"   name="password"/><br/>
+    <button id="login" onlogin="window.location.href='admin.html'">Login</button>
 </form>
 
 <h3>Register</h3>
 <form action="/register" method="post">
-      Username: <input type="text" name="username"/><br/>
-        Password: <input type="text" name="password"/><br/>
-<button id="register">Register</button>
-</form>
+     <input type="text" placeholder="Username" name="username"/><br/>
+    <input type="text" placeholder="Password"  name="password"/><br/>
+<button id="register" >Register</button>
+    </form>
+    </div>
+</div>
 </body>
 </html>

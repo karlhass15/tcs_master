@@ -1,10 +1,9 @@
 'use strict';
 var nodemailer = require('nodemailer');
 var sgTransport = require('nodemailer-sendgrid-transport');
-
 var options = {
     auth: {
-        // sendgrid_password
+        // sendgrid_password api key  MIGHT NEED TO HIDE THIS KEY CHECK HEROKU CONFIG
         api_key: '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'
     }
 };
@@ -14,7 +13,7 @@ exports.renderIndex = function(req,res) {
     res.render('server/views/index', {
         user: req.user || null
     })
-};                                              //removed modules and core didn't exist in dir
+};
 //render server error page
 exports.renderServerError = function(req, res) {
     res.status(500).render('server/views/500', {
@@ -29,9 +28,12 @@ exports.renderNotFound = function(req, res) {
 };
 //send an email when the contact form is submitted
 exports.sendMail = function(req, res) {
+
+    //turns info from email.html form into data
     var data = req.body;
 
-
+    //what will be sending in the email
+    //NEED TO CHANGE EMAIL TO COSCIOUS SHOPPING EMAIL UPON COMPLETION TEST!!!!!!!
     var email = {
         to: ['karl@reclaimedartcraftsman.com'],
         from: data.email,
@@ -39,6 +41,7 @@ exports.sendMail = function(req, res) {
         text: data.message
     };
 
+    //fires off email
     mailer.sendMail(email, function(err, res) {
         if (err) {
             console.log("send error", err)
