@@ -10,6 +10,7 @@ var localStrategy = require('passport-local');
 var contact = require('./routes/contact');
 var index = require('./routes/index');
 var store =  require('./routes/addStore');
+var category = require('./routes/categorySearch');
 
 app.set("port", process.env.PORT || 5000);
 
@@ -42,6 +43,7 @@ mongoDB.once('open', function(){
 });
 app.use('/contact', contact);
 app.use('/addStore', store);
+app.use('/categorysearch', category);
 app.use('/', index);
 
 app.listen(app.get('port'), function(){

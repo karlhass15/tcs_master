@@ -12,7 +12,7 @@ adminRouter.get('/', function(req, res){
 //post of password entry directs to
 adminRouter.post('/',
     passport.authenticate('local', {
-        successRedirect: '/assets/views/admin.html',
+        successRedirect: '/assets/views/sct97ad33min.html',
         failureRedirect: '/assets/views/failure.html'
     })
 );
