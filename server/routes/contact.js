@@ -7,7 +7,7 @@ var mailer = require('../models/email.server.model');
 
 var Schema = mongoose.Schema;
 
-mongoose.connect(process.env.MONGOLAB_URI ||  'mongodb://localhost:27017/consciousshopperdb');
+//mongoose.connect(process.env.MONGOLAB_URI ||  'mongodb://localhost:27017/consciousshopperdb');
 mongoose.model('Email', new Schema({"name": String, "email": String, "message": String}, {collection: 'emails'}));
 var Person = mongoose.model('Email');
 
