@@ -2,7 +2,6 @@
 var express = require('express');
 var router = express.Router();
 var Store = require('../models/store');
-var mongoose = require('mongoose');
 
 //Adding a new store to the Database
 router.post('/', function(req,res){
@@ -42,4 +41,3 @@ router.get('/', function(req, res){
 module.exports = router;
 
 //Search criteria for two search values; will be needed for the category search page
-//{$and: [{address: "3736 17th Ave S, Minneapolis, MN 55407"}, {categories: {$elemMatch: {category : "Eco-Friendly"}}}]}
