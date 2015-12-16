@@ -12,6 +12,7 @@ $(document).ready(function(){
     //            bottom: 150
     //        }, 600);
     //});
+    $('body').css('overflow', 'hidden');
 
     var flag = 1;
 
