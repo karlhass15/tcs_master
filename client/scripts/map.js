@@ -5,7 +5,9 @@ var storeContent = [];
 
 $(document).ready(function(){
 
+
     displayLoading();
+
 
     $('body').css('overflow','hidden');
 

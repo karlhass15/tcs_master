@@ -4,17 +4,17 @@ var Schema = mongoose.Schema;
 //mongoose.connect('mongodb://localhost/consciousshopperdb');
 
 var storeSchema = new Schema({"name": String,
-        "address": String,
-        "description": String,
-        "categories": Array,
-        "latlong": Array,
-        "website": String,
-        "image": String,
-        "loc" : Object},
+                "address": String,
+                "description": String,
+                "categories": Array,
+                "latlong": Array,
+                "website": String,
+                "image": String,
+                "loc" : Object},
         {collection: 'stores'},
-    //schema elements to create spatial elements
+                //schema elements to create spatial elements
         {geometry: {
-            coordinates: {type: [Number], index: '2dsphere'}
+                coordinates: {type: [Number], index: '2dsphere'}
         }
 });
 
