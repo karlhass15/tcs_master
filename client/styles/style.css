@@ -121,7 +121,7 @@ textarea {
 
 }
 
-ul {
+li {
     display: block;
     font-family: 'ostrich';
     font-size: 10pt;
@@ -167,7 +167,9 @@ ul {
     line-height: 10pt;
 }
 
-#goods ul {
+/*categories page tab lists */
+
+#goods li {
     display: block;
     font-family: 'ostrichBlack';
     font-size: 6vmin;
@@ -179,12 +181,12 @@ ul {
     padding: 5px;
 }
 
-#goods ul:hover{
+#goods li:hover{
     border: 2px solid #4a4a4c;
     border-bottom: 4px solid #4a4a4c;
 }
 
-#ethicalStandard ul {
+#ethicalStandard li {
     display: block;
     font-family: 'ostrichBlack';
     font-size: 6vmin;
@@ -196,7 +198,7 @@ ul {
     padding: 5px;
 }
 
-#ethicalStandard ul:hover{
+#ethicalStandard li:hover{
     border: 2px solid #4a4a4c;
     border-bottom: 4px solid #4a4a4c;
 
