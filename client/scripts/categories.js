@@ -1,8 +1,11 @@
 $(document).ready(function(){
 
-    console.log("Testing the categories page");
+    $('#categoriesList').on('click', '.category', function(){
+        var testValue = $(this).text();
+        console.log("This is the testValue: ", testValue);
+        categorySearch();
+    });
 
-    categorySearch();
 
 });
 
