@@ -13,11 +13,13 @@ $(document).ready(function(){
     //        }, 600);
     //});
 
+    $('body').css('overflow','hidden');
+
     var flag = 1;
 
-    $('#navMenu').click(function() {
+    $('#popupButton').click(function() {
         if(flag == 1){
-        $(this)
+        $("#navMenu")
             .stop(true, false)
             .animate({
                 bottom: 150
@@ -25,7 +27,7 @@ $(document).ready(function(){
 
             flag = 0;
         } else {
-            $(this)
+            $("#navMenu")
                 .stop(true, false)
                 .animate({
                     bottom: 50
@@ -95,7 +97,17 @@ var initMap = function(myLocation, storesFound){
 
     var map = new google.maps.Map(document.getElementById('mapContainer'), {
         zoom: 12,
-        center: myLocation
+        center: myLocation,
+
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        }
+
 
     });
 

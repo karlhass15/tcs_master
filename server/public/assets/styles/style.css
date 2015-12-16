@@ -17,17 +17,26 @@
 /*}*/
 
 
-html, body
-{
-    height: 100%;
+html {
+    position: relative;
+    min-height: 100%;
     margin: 0;
     padding: 0;
+
+}
+
+body {
+    margin-bottom: 100px;
 }
 
 #mapContainer{
     height: 80vh;
     overflow: hidden;
 }
+
+/*#mapBody {*/
+    /*overflow: hidden;*/
+/*}*/
 
 
 header {
@@ -297,7 +306,7 @@ ul {
     height: 50px;
     width:50px;
     padding-top: 15px;
-    /*border-radius: 30% 30% 0 0;*/
+    border-radius: 20% 20% 0 0;
     z-index: 1;
 }
 
