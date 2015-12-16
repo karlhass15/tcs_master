@@ -517,3 +517,52 @@ li {
     padding-top: 95%;
 }
 
+
+
+
+/*/////////////On Map Popup/////////////*/
+
+#mapContainer h4 {
+    font-family: 'ostrichBlack';
+    background-color: #4a4a4c;
+    color: #e1e34c;
+    padding-left: 3px;
+    padding-top: 2px;
+    font-size: 5em;
+
+}
+
+#mapContainer h5 {
+    font-family: 'ostrich';
+    font-size: 3em;
+    color: #4a4a4c;
+    padding-left: 3px;
+    padding-top: 2px;
+    line-height: 22pt;
+
+}
+
+#mapContainer img {
+    width: 100%;
+    height: auto;
+
+}
+
+#grayBackground p {
+    height: 100%;
+    padding: 12px;
+    font-family: 'ostrich';
+    font-size: 2em;
+    line-height: 24pt;
+}
+
+#contact h3{
+    font-family: 'ostrichBlack';
+    padding: 12px;
+    font-size: 4em;
+
+}
+
+#contactForm input {
+    margin-bottom: 1%;
+}

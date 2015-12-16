@@ -1,5 +1,16 @@
 
 $(document).ready(function(){
+
+    $('#informationTab a').click(function (e) {
+        if($(this).parent('li').hasClass('active')){
+            $( $(this).attr('href') ).hide();
+        }
+        else {
+            e.preventDefault();
+            $(this).tab('show');
+        }
+    });
+
     $("#contactForm").submit(function(event){
         event.preventDefault();
         var values = {};

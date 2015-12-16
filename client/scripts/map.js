@@ -144,10 +144,11 @@ var initMap = function(myLocation, storesFound){
 var setContentstring = function(store){
     contentString =
         '<div class="container">' +
-        '<div class="col-xs-4">' +
-        '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+        '<div class="col-xs-12">' +
+        //'<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+        //    '<img src='+store.image+'>' + ///this line grabs url input from form correctly
         '</div>' +
-        '<div class="col-xs-8">' +
+        '<div class="col-xs-12">' +
         '<h4>'+store.name+'</h4>' +
         '<h5>' + store.description + '</h5>'+
         '<h5>Distance</h5>' +
