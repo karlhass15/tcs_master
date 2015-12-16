@@ -8,6 +8,7 @@ $(document).ready(function(){
 
     getCurrentLocation();
 
+
 });
 
 
@@ -21,7 +22,8 @@ var findStore = function(){
         success: function(data){
             console.log("The data response from the db: ", data);
             storesFound = data;
-            console.log("The storesFound: ", storesFound);
+            //console.log("The storesFound: ", storesFound);
+            appDom(storesFound);
             return storesFound;
         }
     });
@@ -74,3 +76,29 @@ var setContentstring = function(store){
         '</div>';
     return contentString;
 };
+
+function appDom(array) {
+
+
+
+
+    for (var i = 0; i < array.length -1; i++) {
+
+        var miles = (array[i].distance * 3963.2).toFixed(1);
+        var query = "http://maps.google.com/?q=";
+        var address = array[i].address;
+        var mapsLink = query + address;
+
+        $('#storeList').append( '<div class="container">' +
+            '<div class="col-xs-4">' +
+                '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+            '</div>' +
+            '<div class="col-xs-8">' +
+            '<h4><strong></strong>'+ array[i].name +' </strong>' + miles+ ' miles</h4>' +
+            '<h4><a href=" '+ mapsLink+ ' ">Directions</h4>' +
+            '</div>'+
+            '</div>');
+    }
+
+
+}
