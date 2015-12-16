@@ -14,11 +14,13 @@ $(document).ready(function(){
     //});
     $('body').css('overflow', 'hidden');
 
+    $('body').css('overflow','hidden');
+
     var flag = 1;
 
-    $('#navMenu').click(function() {
+    $('#popupButton').click(function() {
         if(flag == 1){
-        $(this)
+        $("#navMenu")
             .stop(true, false)
             .animate({
                 bottom: 150
@@ -26,7 +28,7 @@ $(document).ready(function(){
 
             flag = 0;
         } else {
-            $(this)
+            $("#navMenu")
                 .stop(true, false)
                 .animate({
                     bottom: 50
@@ -96,7 +98,17 @@ var initMap = function(myLocation, storesFound){
 
     var map = new google.maps.Map(document.getElementById('mapContainer'), {
         zoom: 12,
-        center: myLocation
+        center: myLocation,
+
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        }
+
 
     });
 
@@ -143,6 +155,13 @@ var initMap = function(myLocation, storesFound){
 }
 
 var setContentstring = function(store){
+
+    var miles = (store.distance * 3963.2).toFixed(1);
+    var query = "https://www.google.com/maps/dir/Current+Location/";
+    var lat = store.latlong[0];
+    var long = store.latlong[1];
+    var mapsLink = query + lat + "," + long;
+
     contentString =
         '<div class="container">' +
         '<div class="col-xs-12">' +
@@ -152,9 +171,9 @@ var setContentstring = function(store){
         '<div class="col-xs-12">' +
         '<h4>'+store.name+'</h4>' +
         '<h5>' + store.description + '</h5>'+
-        '<h5>Distance</h5>' +
+        '<h5>' + miles + ' Miles</h5>' +
             //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
-        '<h5>Directions</h5>' +
+        '<button><a href=" '+mapsLink+' ">Directions</a></button>' +
         '</div>'+
         '</div>';
     return contentString;

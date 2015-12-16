@@ -29,6 +29,10 @@ module.exports = function(grunt){
             categories: {
                 src: 'client/scripts/categories.js',
                 dest: 'server/public/assets/scripts/categories.min.js'
+            },
+            storelist: {
+                src: 'client/scripts/storelist.js',
+                dest: 'server/public/assets/scripts/storelist.min.js'
             }
 
         },
