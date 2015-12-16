@@ -58,25 +58,6 @@ var getCurrentLocation = function() {
 
 
 
-
-var setContentstring = function(store){
-    contentString =
-        '<div class="container">' +
-        '<div class="col-xs-12">' +
-            //'<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
-            //    '<img src='+store.image+'>' + ///this line grabs url input from form correctly
-        '</div>' +
-        '<div class="col-xs-12">' +
-        '<h4>'+store.name+'</h4>' +
-        '<h5>' + store.description + '</h5>'+
-        '<h5>Distance</h5>' +
-            //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
-        '<h5>Directions</h5>' +
-        '</div>'+
-        '</div>';
-    return contentString;
-};
-
 function appDom(array) {
 
 
@@ -85,9 +66,10 @@ function appDom(array) {
     for (var i = 0; i < array.length -1; i++) {
 
         var miles = (array[i].distance * 3963.2).toFixed(1);
-        var query = "http://maps.google.com/?q=";
-        var address = array[i].address;
-        var mapsLink = query + address;
+        var query = "https://www.google.com/maps/dir/Current+Location/";
+        var lat = array[i].latlong[0];
+        var long = array[i].latlong[1];
+        var mapsLink = query + lat + "," + long;
 
         $('#storeList').append( '<div class="container">' +
             '<div class="col-xs-4">' +
@@ -95,7 +77,7 @@ function appDom(array) {
             '</div>' +
             '<div class="col-xs-8">' +
             '<h4><strong></strong>'+ array[i].name +' </strong>' + miles+ ' miles</h4>' +
-            '<h4><a href=" '+ mapsLink+ ' ">Directions</h4>' +
+            '<button><a href=" '+ mapsLink+ ' ">Directions</button>' +
             '</div>'+
             '</div>');
     }

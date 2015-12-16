@@ -142,6 +142,13 @@ var initMap = function(myLocation, storesFound){
 }
 
 var setContentstring = function(store){
+
+    var miles = (store.distance * 3963.2).toFixed(1);
+    var query = "https://www.google.com/maps/dir/Current+Location/";
+    var lat = store.latlong[0];
+    var long = store.latlong[1];
+    var mapsLink = query + lat + "," + long;
+
     contentString =
         '<div class="container">' +
         '<div class="col-xs-12">' +
@@ -151,9 +158,9 @@ var setContentstring = function(store){
         '<div class="col-xs-12">' +
         '<h4>'+store.name+'</h4>' +
         '<h5>' + store.description + '</h5>'+
-        '<h5>Distance</h5>' +
+        '<h5>' + miles + ' Miles</h5>' +
             //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
-        '<h5>Directions</h5>' +
+        '<button><a href=" '+mapsLink+' ">Directions</a></button>' +
         '</div>'+
         '</div>';
     return contentString;
