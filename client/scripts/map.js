@@ -166,7 +166,7 @@ var setContentstring = function(store){
         //    '<img src='+store.image+'>' + ///this line grabs url input from form correctly
         '</div>' +
         '<div class="col-xs-12">' +
-        '<h4>'+store.name+'</h4>' +
+        '<h4><a href="store.html"> '+store.name+'</a></h4>' +
         '<h5>' + store.description + '</h5>'+
         '<h5>' + miles + ' Miles</h5>' +
             //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
@@ -174,6 +174,7 @@ var setContentstring = function(store){
         '</div>'+
         '</div>';
     return contentString;
+
 };
 
 function displayLoading(){
