@@ -1,12 +1,13 @@
 var parameters = {};
-$(document).ready(function(){
 
+$(document).ready(function(){
     getCurrentLocation();
     $('#categoriesList').on('click', '.category', function(){
         var testValue = $(this).text();
         console.log("This is the testValue: ", testValue);
         parameters.category = testValue;
         categorySearch();
+
     });
 
 
@@ -22,9 +23,21 @@ var categorySearch = function(){
         data: parameters,
         success: function(data){
             console.log("This is the data: ", data);
-        }
-    })
-}
+            //Local storage test
+            storeLocalData(data);
+            }
+    });
+};
+
+var storeLocalData = function(data){
+    var sessionString = data[0]._id;
+  for (var i=1; i<data.length; i++){
+      sessionString += "," + data[i]._id;
+  }
+    sessionStorage.setItem('store_ids', sessionString);
+    var test = sessionStorage.getItem('store_ids');
+    console.log("Test of the local storage: ", test);
+};
 
 
 //finding the user's current lcoation

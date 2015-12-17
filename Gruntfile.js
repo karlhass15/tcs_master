@@ -37,6 +37,10 @@ module.exports = function(grunt){
             store: {
                 src: 'client/scripts/store.js',
                 dest: 'server/public/assets/scripts/store.min.js'
+            },
+            categorystorelist: {
+                src: 'client/scripts/categorystorelist.js',
+                dest: 'server/public/assets/scripts/categorystorelist.min.js'
             }
 
         },
@@ -78,6 +82,13 @@ module.exports = function(grunt){
                 src: 'smoothness/*',
                 "dest": "server/public/assets/vendors/"
 
+            },
+
+            persist_js: {
+                expand: true,
+                cwd: 'node_modules/persist-js',
+                src: 'persist-min.js',
+                "dest": "server/public/assets/vendors/"
             },
 
             html: {

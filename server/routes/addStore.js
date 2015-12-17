@@ -29,7 +29,10 @@ router.post('/', function(req,res){
 //category search criteria
 router.get('/', function(req, res){
     console.log("Here is the req.query: ", req.query);
-    Store.aggregate([{$geoNear: {near: [parseFloat(req.query.lng), parseFloat(req.query.lat)], distanceField: "distance", spherical: true }}],
+    //for (var i=0; i<req.query.paramArray.length; i ++){
+    //    req.query.paramArray[i].replace("\", '');
+    //}
+    Store.find({_id : {$in: req.query.paramArray}},
      function(err, data) {
         if (err) {
             console.log("Error in the query!: ", err);
