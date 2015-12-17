@@ -5,7 +5,7 @@ var storeContent = [];
 
 $(document).ready(function(){
 
-
+    displayLoading();
     getCurrentLocation();
 
 
@@ -24,6 +24,7 @@ var findStore = function(){
             storesFound = data;
             //console.log("The storesFound: ", storesFound);
             appDom(storesFound);
+            displayCompleted();
             return storesFound;
         }
     });
@@ -81,6 +82,18 @@ function appDom(array) {
             '</div>'+
             '</div>');
     }
+
+
+}
+
+function displayLoading(){
+
+    $('#spin').addClass('spinner');
+
+}
+
+function displayCompleted(){
+    $('#spin').removeClass('spinner');
 
 
 }

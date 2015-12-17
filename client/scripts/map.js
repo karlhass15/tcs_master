@@ -5,13 +5,9 @@ var storeContent = [];
 
 $(document).ready(function(){
 
-    //$('#navMenu').click(function() {
-    //    $(this)
-    //        .stop(true, false)
-    //        .animate({
-    //            bottom: 150
-    //        }, 600);
-    //});
+
+    displayLoading();
+
 
     $('body').css('overflow','hidden');
 
@@ -56,7 +52,9 @@ var findStore = function(){
             console.log("The data response from the db: ", data);
             storesFound = data;
             console.log("The storesFound: ", storesFound);
+            displayCompleted();
             initMap(myLatLng, storesFound);
+
             return storesFound;
         }
     });
@@ -177,3 +175,16 @@ var setContentstring = function(store){
         '</div>';
     return contentString;
 };
+
+function displayLoading(){
+
+    $('#spin').addClass('spinner');
+    $('body').addClass('backgroundSpin');
+}
+
+function displayCompleted(){
+    $('#spin').removeClass('spinner');
+    $('body').removeClass('backgroundSpin');
+
+
+}
