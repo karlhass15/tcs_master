@@ -84,7 +84,7 @@ var getCurrentLocation = function() {
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
     }
-}
+};
 
 
 
@@ -149,7 +149,7 @@ var initMap = function(myLocation, storesFound){
 
     }
     /////end init map
-}
+};
 
 var setContentstring = function(store){
 

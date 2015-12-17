@@ -3,8 +3,9 @@ var router = express.Router();
 var path = require('path');
 var login = require('./login');
 var register = require('./register');
+var storesAdmin = require('./storesAdmin');
 
-
+router.use('/storesAdmin', storesAdmin);
 router.use('/login', login);
 router.use('/register', register);
 
