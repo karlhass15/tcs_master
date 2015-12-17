@@ -5,8 +5,9 @@ $(document).ready(function() {
         //updateDOM(data);
 
         $("#storeContainer").on('click', '.delete', deleteStore);
+
              getStores();
-                updateDOM()
+                updateDOM();
 
 });
         function getStores() {
@@ -21,7 +22,7 @@ $(document).ready(function() {
         }
 
         function updateDOM(data) {
-            $('storesContainer').empty();
+            $('#storeContainer').empty();
 
             for (var i = 0; i < data.length; i++) {
                 var el = "<div class='well col-md-3'>" +
@@ -48,12 +49,13 @@ $(document).ready(function() {
                 }
             });
         }
+
     function clearPage() {
         $.ajax({
             type: 'GET',
-            url: '/deletestores',
+            url: '/getstores',
             success: function (data) {
-                getStores(data);
+                updateDOM(data);
             }
 
         })

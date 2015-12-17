@@ -655,6 +655,10 @@ li {
 }
 
 button {
+    font-family: 'ostrichBlack';
+    color: #e1e34c;
+    font-size: 2.5vmax;
+    vertical-align: middle;
     display: inline;
     margin-left: 3%;
     /*margin-top: 3vmin;*/
@@ -755,5 +759,8 @@ button a:hover{
        }
 }
 
+/*///////ADMIN PAGE*/
 
-
+.addstoreButton{
+    margin-left: 0;
+}
