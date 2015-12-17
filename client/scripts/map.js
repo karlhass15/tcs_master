@@ -84,7 +84,7 @@ var getCurrentLocation = function() {
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
     }
-}
+};
 
 
 
@@ -149,7 +149,7 @@ var initMap = function(myLocation, storesFound){
 
     }
     /////end init map
-}
+};
 
 var setContentstring = function(store){
 
@@ -164,16 +164,21 @@ var setContentstring = function(store){
         '<div class="col-xs-12">' +
         //'<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
         //    '<img src='+store.image+'>' + ///this line grabs url input from form correctly
+        '<img src="http://www.fillmurray.com/500/400" alt="store logo"/>'+
+
         '</div>' +
         '<div class="col-xs-12">' +
-        '<h4>'+store.name+'</h4>' +
-        '<h5>' + store.description + '</h5>'+
-        '<h5>' + miles + ' Miles</h5>' +
+
+        '<h4><a href="store.html"> '+store.name+'</a></h4>' +
+        '<h5>' + store.description + '</h5></br>'+
+        '<h5><strong>' + miles + ' Miles</strong></h5>' +
+
             //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
         '<button><a href=" '+mapsLink+' ">Directions</a></button>' +
         '</div>'+
         '</div>';
     return contentString;
+
 };
 
 function displayLoading(){
