@@ -5,19 +5,17 @@ var storeContent = [];
 
 $(document).ready(function(){
 
-    //$('#navMenu').click(function() {
-    //    $(this)
-    //        .stop(true, false)
-    //        .animate({
-    //            bottom: 150
-    //        }, 600);
-    //});
+
+    displayLoading();
+
+
+    $('body').css('overflow','hidden');
 
     var flag = 1;
 
-    $('#navMenu').click(function() {
+    $('#popupButton').click(function() {
         if(flag == 1){
-        $(this)
+        $("#navMenu")
             .stop(true, false)
             .animate({
                 bottom: 150
@@ -25,7 +23,7 @@ $(document).ready(function(){
 
             flag = 0;
         } else {
-            $(this)
+            $("#navMenu")
                 .stop(true, false)
                 .animate({
                     bottom: 50
@@ -54,7 +52,9 @@ var findStore = function(){
             console.log("The data response from the db: ", data);
             storesFound = data;
             console.log("The storesFound: ", storesFound);
+            displayCompleted();
             initMap(myLatLng, storesFound);
+
             return storesFound;
         }
     });
@@ -84,7 +84,7 @@ var getCurrentLocation = function() {
             'Error: The Geolocation service failed.' :
             'Error: Your browser doesn\'t support geolocation.');
     }
-}
+};
 
 
 
@@ -95,7 +95,17 @@ var initMap = function(myLocation, storesFound){
 
     var map = new google.maps.Map(document.getElementById('mapContainer'), {
         zoom: 12,
-        center: myLocation
+        center: myLocation,
+
+        streetViewControl: true,
+        streetViewControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        },
+        zoomControl: true,
+        zoomControlOptions: {
+            position: google.maps.ControlPosition.RIGHT_TOP
+        }
+
 
     });
 
@@ -139,21 +149,47 @@ var initMap = function(myLocation, storesFound){
 
     }
     /////end init map
-}
+};
 
 var setContentstring = function(store){
+
+    var miles = (store.distance * 3963.2).toFixed(1);
+    var query = "https://www.google.com/maps/dir/Current+Location/";
+    var lat = store.latlong[0];
+    var long = store.latlong[1];
+    var mapsLink = query + lat + "," + long;
+
     contentString =
         '<div class="container">' +
-        '<div class="col-xs-4">' +
-        '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+        '<div class="col-xs-12">' +
+        //'<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+        //    '<img src='+store.image+'>' + ///this line grabs url input from form correctly
+        '<img src="http://www.fillmurray.com/500/400" alt="store logo"/>'+
+
         '</div>' +
-        '<div class="col-xs-8">' +
-        '<h4>'+store.name+'</h4>' +
-        '<h5>' + store.description + '</h5>'+
-        '<h5>Distance</h5>' +
+        '<div class="col-xs-12">' +
+
+        '<h4><a href="store.html"> '+store.name+'</a></h4>' +
+        '<h5>' + store.description + '</h5></br>'+
+        '<h5><strong>' + miles + ' Miles</strong></h5>' +
+
             //'<h5><a href=" '+var+' "></a>Website</h5>' + NEED TO SET UP DIRECTIONAL DATA
-        '<h5>Directions</h5>' +
+        '<button><a href=" '+mapsLink+' ">Directions</a></button>' +
         '</div>'+
         '</div>';
     return contentString;
+
 };
+
+function displayLoading(){
+
+    $('#spin').addClass('spinner');
+    $('body').addClass('backgroundSpin');
+}
+
+function displayCompleted(){
+    $('#spin').removeClass('spinner');
+    $('body').removeClass('backgroundSpin');
+
+
+}

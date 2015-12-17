@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Search by Location</title>
     <link rel="stylesheet" href="/assets/vendors/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/styles/style.css">
 
@@ -16,6 +16,17 @@
 
 <body>
 
+<div id="mapSpinnerBackground">
+    <div class="spinner" id="spin">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+
+<div id="mapBody">
 
 <div id="mapContainer" class="container"></div>
 
@@ -26,7 +37,11 @@
 
 
 <div id="navMenu">
-    <div id="menuTab">MENU</div>
+    <div id="menuTab">
+        <div id="popupButton">
+        MENU
+            </div>
+             </div>
     <div id="tabLinks">
         <div id="store" class="col-xs-3"><a href="/assets/views/storelist.html"></a></div>
         <div id="category" class="col-xs-3"><a href="/assets/views/categories.html"></a></div>
@@ -45,7 +60,7 @@
 </script>
 
 </body>
-
+</div>
 <footer>
 
 

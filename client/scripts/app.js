@@ -14,15 +14,15 @@ $(document).ready(function() {
         }
     });
 
-    $('#informationTab a').click(function (e) {
-        if($(this).parent('li').hasClass('active')){
-            $( $(this).attr('href') ).hide();
-        }
-        else {
-            e.preventDefault();
-            $(this).tab('show');
-        }
-    });
+    //$('#informationTab a').click(function (e) {
+    //    if($(this).parent('li').hasClass('active')){
+    //        $( $(this).attr('href') ).hide();
+    //    }
+    //    else {
+    //        e.preventDefault();
+    //        $(this).tab('show');
+    //    }
+    //});
 
     //$('#goods').tab('show'); // Select tab by name
     //$('#ethicalStandard').tab('show'); // Select tab by name

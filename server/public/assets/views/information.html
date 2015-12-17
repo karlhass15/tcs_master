@@ -8,7 +8,7 @@
 
     <script type="text/javascript" src="../vendors/jquery.min.js"></script>
     <!--<script type="text/javascript" src="../vendors/jquery-ui.js"></script>-->
-    <script type="text/javascript" src="/assets/scripts/app.min.js"></script>
+    <script type="text/javascript" src="/assets/scripts/email.min.js"></script>
     <script type="text/javascript" src="../vendors/bootstrap.min.js"></script>
 
     <!--<link rel="stylesheet" href="../vendors/smoothness/jquery-ui.css">-->
@@ -39,7 +39,22 @@
         </div>
 
         <div class="tab-pane fade" id="help">
-            <h1>Here is a form you can use to submit questions you have.</h1>
+            <div id="grayBackground">
+
+            <p>Would you like us to know about a store you really love? Perhaps you have a suggestion regarding the site.
+                Or maybe you'd just like to tell us how you think we're doing. Fill out the form below to let us know. THANKS! </p>
+
+            <div id="contact">
+                <h3>Contact/Suggest a Store</h3>
+                <form id="contactForm" method="POST" action="/contact">
+                    <input type="text" placeholder="Name" name="name">
+                    <input type="text" placeholder="Email" name="email">
+                <textarea type="text" placeholder="Message" value="Message" name="message"
+                          required></textarea>
+                    <button type="submit btn" onclick="window.location.href='index.html'">Submit</button>
+                </form>
+            </div>
+            </div>
         </div>
 
         <div class="tab-pane fade" id="createShortcut">

@@ -11,6 +11,8 @@ var index = require('./routes/index');
 var store =  require('./routes/addStore');
 var Stores = require('./routes/storesAdmin');
 var Delete =require('./routes/storesAdmin');
+var category = require('./routes/categorySearch');
+
 
 app.set("port", process.env.PORT || 5000);
 
@@ -45,6 +47,7 @@ app.use('/deletestores', Delete);
 app.use('/getstores', Stores);
 app.use('/contact', contact);
 app.use('/addStore', store);
+app.use('/categorysearch', category);
 app.use('/', index);
 
 app.listen(app.get('port'), function(){

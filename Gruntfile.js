@@ -25,6 +25,18 @@ module.exports = function(grunt){
             email: {
                 src: 'client/scripts/email.js',
                 dest: 'server/public/assets/scripts/email.min.js'
+            },
+            categories: {
+                src: 'client/scripts/categories.js',
+                dest: 'server/public/assets/scripts/categories.min.js'
+            },
+            storelist: {
+                src: 'client/scripts/storelist.js',
+                dest: 'server/public/assets/scripts/storelist.min.js'
+            },
+            store: {
+                src: 'client/scripts/store.js',
+                dest: 'server/public/assets/scripts/store.min.js'
             }
 
         },
