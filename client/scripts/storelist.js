@@ -76,8 +76,8 @@ function appDom(array) {
                 '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
             '</div>' +
             '<div class="col-xs-8">' +
-            '<h4><strong></strong>'+ array[i].name +' </strong>' + miles+ ' miles</h4>' +
-            '<button><a href=" '+ mapsLink+ ' ">Directions</button>' +
+            '<h4>'+ array[i].name +' </h4>' + '</br><h5>' + miles+ ' miles</h5>' +
+            '<button class="directionsButton"><a href=" '+ mapsLink+ ' ">Directions</button>' +
             '</div>'+
             '</div>');
     }
