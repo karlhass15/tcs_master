@@ -74,10 +74,13 @@ function appDom(array) {
 
         $('#storeList').append( '<div class="container">' +
             '<div class="col-xs-4">' +
-                '<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+                //'<img src="http://www.logoorange.com/thumb-portfolio/logo_thumbnail_military-design-logo.png" alt="store logo"/>'+
+
+            '<img src="http://www.fillmurray.com/500/400" alt="store logo"/>'+
+
             '</div>' +
             '<div class="col-xs-8">' +
-            '<h4><a href="store.html"><strong></strong>'+ array[i].name +' </strong></a>' + miles+ ' miles</h4>' +
+            '<h4><a href="store.html"><strong>'+ array[i].name +' </strong></a></h4></br><h5>' + miles+ ' miles</h5>' +
             '<button><a href=" '+ mapsLink+ ' ">Directions</button>' +
             '</div>'+
             '</div>');

@@ -550,7 +550,7 @@ li {
 
 #mapContainer h4 {
     font-family: 'ostrichBlack';
-    background-color: #4a4a4c;
+    /*background-color: #4a4a4c;*/
     color: #e1e34c;
     padding-left: 3px;
     padding-top: 2px;
@@ -573,6 +573,17 @@ li {
     width: 100%;
     height: auto;
 
+}
+
+
+#mapContainer h4 a {
+    color: #4a4a4c;
+    text-decoration: none;
+}
+
+#mapContainer h4 a:hover {
+    color: #e1e34c;
+    text-decoration: none;
 }
 
 #grayBackground p {
@@ -607,7 +618,7 @@ li {
 }
 
 #storeList img {
-    max-height: 13vh;
+    max-height: 17vh;
 }
 
 #storeList h4 {
@@ -624,14 +635,23 @@ li {
 }
 
 #storeList h5 {
-    font-family: 'ostrich';
-    display: inline;
-    font-size: 3vmax;
+     font-family: 'ostrich';
+     display: inline;
+     font-size: 3vmax;
+     color: #4a4a4c;
+     padding-left: 3px;
+     line-height: 7vmax;
+
+ }
+
+#storeList h4 a {
     color: #4a4a4c;
-    padding-left: 3px;
-    line-height: 7vmax;
+    text-decoration: none;
+}
 
-
+#storeList h4 a:hover {
+    color: #e1e34c;
+    text-decoration: none;
 }
 
 button {
