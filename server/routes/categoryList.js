@@ -5,6 +5,7 @@ var Store = require('../models/store');
 
 router.get('/', function(req, res){
     console.log("Here is the req.query: ", req.query);
+
     Store.find({_id : {$in : req.query.paramArray}},
         function(err, data){
             if (err) {

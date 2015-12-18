@@ -1,4 +1,8 @@
+
+var editStoreId;
+
 $(document).ready(function() {
+
 
         //updateDOM(data);
         $('#storeSearchEdit').keypress(function (event) {
@@ -49,7 +53,7 @@ $(document).ready(function() {
         //updateDOM(data);
 
         $("#storeContainer").on('click', '.delete', deleteStore);
-
+        $("#storeContainer").on('click', '.edit', editStore);
              getStores();
                 updateDOM();
 
@@ -105,3 +109,104 @@ $(document).ready(function() {
 
         })
     }
+
+
+function editStore() {
+    editStoreId = {"id": $(this).data("id")};
+        //{"name": $(this).data("name")}];
+
+    console.log(editStoreId);
+
+    $.ajax({
+        type: "post",
+        url: "/editstore",
+        data: editStoreId,
+        success: function (data) {
+            //window.location.replace('/assets/views/add00store.html');
+            console.log("Here is the /editstore data", data);
+            console.log(editStoreId);
+            editStoreId = data;
+            populateFields(data);
+        }
+    });
+}
+//
+var populateFields = function(data){
+    window.location.replace('/assets/views/add00store.html');
+    console.log("test");
+
+    //console.log(editStoreId);
+    //$("#addStoreForm")address.val(data.address)
+}
+
+
+
+//
+//
+//function populateFields(editStoreId) {
+//
+//    $.ajax({
+//        method: 'GET',
+//        url: '/getstoreforedit',
+//        data: editStoreId,
+//
+//        //data: {"_id": editStoreId},
+//        success: function (data) {
+//            console.log("The response data: ", data);
+//        }
+//    });
+//}
+//
+//populateFields(editStoreId);
+
+
+    //
+    //function findStore(data) {
+    //    $('#storeAdminSearch').keypress(function (e) {
+    //        if (e.which == 13) {
+    //            var el = "<div class='well col-md-3'>" +
+    //                "<p>" + data[i].name + "</p>" +
+    //                "<button class='btn btn-danger delete' data-id='" + data[i].id + "'>Delete</button>" +
+    //                "button class='btn btn-primary edit' data-id='" + data[i].id + "'>Edit</button>" +
+    //                "</div>";
+    //            $('storeContainer').append(el);
+    //        }
+    //    });
+    //}                                                                                                          ////Function to find the store -- called within getCurrentLocation
+//var findStore = function(){
+//    console.log("The location data being sent to the db as search criteria: ", myLatLng);
+//    $.ajax({
+//        type: "GET",
+//        url: "/addStore",
+//        data: myLatLng,
+//        success: function(data){
+//            console.log("The data response from the db: ", data);
+//            storesFound = data;
+//            console.log("The storesFound: ", storesFound);
+//            initMap(myLatLng, storesFound);
+//            return storesFound;
+//        }
+//    });
+//};
+
+//search store database
+//function findStore() {
+//    event.preventDefault();
+//    var stores = {};
+//
+//    $.each($(this).serializeArray(), function (i, field) {
+//        stores[field.name] = field.value;
+//    });
+//
+////clears the search input after enter
+//    $('#storeSearchAdd').find("input[type=text]").val("");
+//
+//    $.ajax({
+//        type: "GET",
+//        url: "/data",
+//        data: stores,
+//        success: function (data) {
+//            getStores();
+//        }
+//    });
+//}

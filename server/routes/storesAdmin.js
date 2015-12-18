@@ -48,6 +48,19 @@ storesAdminrouter.delete('/', function(req,res){
 });
 
 
+//Will grab store by id when  edit button attached to store is clicked.
+storesAdminrouter.post('/', function(req,res){
+    console.log("this is edit store id", req.body.id);
+    console.log("this is entire store body", req.body);
+
+    Store.findById({"_id" : req.body.id}, function(err, data){
+        if(err) console.log(err);
+        res.send(data);
+    });
+
+});
+
+
 
 storesAdminrouter.get('/*', function(req, res) {
     var file = req.params[0] || "views/sct97ad33min.html";
