@@ -32,7 +32,7 @@ router.get('/', function(req, res){
     //for (var i=0; i<req.query.paramArray.length; i ++){
     //    req.query.paramArray[i].replace("\", '');
     //}
-    Store.find({_id : {$in: req.query.paramArray}},
+    Store.aggregate({$geoNear: {near: [parseFloat(req.query.lng), parseFloat(req.query.lat)], distanceField: "distance", spherical: true, limit: 3 }},
      function(err, data) {
         if (err) {
             console.log("Error in the query!: ", err);
