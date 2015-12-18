@@ -2,7 +2,7 @@ var express = require('express');
 var storesAdminrouter = express.Router();
 var path = require('path');
 var mongoose = require('mongoose');
-var Store = require('../models/store');
+var Store = require('../Models/store');
 
 
 //NEED TO UP DATE TO OR \\ CALL FOR LIVE VERSION ON HEROKU: !!!!!!!!!!!!!!!!

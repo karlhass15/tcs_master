@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Store = require('../models/store');
+var Store = require('../Models/store');
 
 router.get('/', function(req, res, editStoreId){
     console.log("Here is the req.body: ", editStoreId);
