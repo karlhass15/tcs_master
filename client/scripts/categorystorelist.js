@@ -3,7 +3,6 @@ var test;
 
 $(document).ready(function(){
 
-    console.log("Testing the script functionality!");
     test = sessionStorage.getItem('store_ids');
     storeIdArray = test.split(',');
     console.log("The storeIdArray: ", storeIdArray);
@@ -21,7 +20,7 @@ $(document).ready(function(){
 var getStores = function(){
         $.ajax({
             method: 'GET',
-            url: '/addStore',
+            url: '/categoryist',
             data: {"paramArray": storeIdArray},
             success: function(data){
                 console.log("The response data: ", data);

@@ -1,5 +1,10 @@
+
+var editStoreId;
+
 $(document).ready(function() {
 
+
+        console.log("TEST");
         //$('#storeAdminSearch').on('return', 'search', findStore);
 
         //updateDOM(data);
@@ -63,7 +68,7 @@ $(document).ready(function() {
 
 
 function editStore() {
-    var editStoreId = {"id": $(this).data("id")};
+    editStoreId = {"id": $(this).data("id")};
         //{"name": $(this).data("name")}];
 
     console.log(editStoreId);
@@ -73,11 +78,44 @@ function editStore() {
         url: "/editstore",
         data: editStoreId,
         success: function (data) {
+            //window.location.replace('/assets/views/add00store.html');
             console.log("Here is the /editstore data", data);
-            //clearPage();
+            console.log(editStoreId);
+            editStoreId = data;
+            populateFields(data);
         }
     });
 }
+//
+var populateFields = function(data){
+    window.location.replace('/assets/views/add00store.html');
+    console.log("test");
+
+    //console.log(editStoreId);
+    //$("#addStoreForm")address.val(data.address)
+}
+
+
+
+//
+//
+//function populateFields(editStoreId) {
+//
+//    $.ajax({
+//        method: 'GET',
+//        url: '/getstoreforedit',
+//        data: editStoreId,
+//
+//        //data: {"_id": editStoreId},
+//        success: function (data) {
+//            console.log("The response data: ", data);
+//        }
+//    });
+//}
+//
+//populateFields(editStoreId);
+
+
     //
     //function findStore(data) {
     //    $('#storeAdminSearch').keypress(function (e) {
