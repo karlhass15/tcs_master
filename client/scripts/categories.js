@@ -36,7 +36,7 @@ var storeLocalData = function(data){
   }
     sessionStorage.setItem('store_ids', sessionString);
     var test = sessionStorage.getItem('store_ids');
-    console.log("Test of the local storage: ", test);
+    window.location.replace('/assets/views/categorystorelist.html');
 };
 
 
