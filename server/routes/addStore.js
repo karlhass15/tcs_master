@@ -28,7 +28,7 @@ router.post('/', function(req,res){
 //Search Criteria for a hard-coded category. Do we want to move this to a new route? Need to add variables for geolocation and entered
 //category search criteria
 router.get('/', function(req, res){
-    console.log("Here is the req.query: ", req.query);
+    //console.log("Here is the req.query: ", req.query);
     //for (var i=0; i<req.query.paramArray.length; i ++){
     //    req.query.paramArray[i].replace("\", '');
     //}
