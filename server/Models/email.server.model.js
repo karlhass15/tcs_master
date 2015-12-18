@@ -35,7 +35,7 @@ exports.sendMail = function(req, res) {
     //what will be sending in the email
     //NEED TO CHANGE EMAIL TO COSCIOUS SHOPPING EMAIL UPON COMPLETION TEST!!!!!!!
     var email = {
-        to: ['karl@reclaimedartcraftsman.com'],
+        to: ['karl.hass15@gmail.com'],
         from: data.email,
         subject: 'Message from ' + data.name,
         text: data.message
