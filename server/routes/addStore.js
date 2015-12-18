@@ -1,7 +1,7 @@
 //Variable declarations
 var express = require('express');
 var router = express.Router();
-var Store = require('./store');
+var Store = require('../models/store');
 
 //Adding a new store to the Database
 router.post('/', function(req,res){
