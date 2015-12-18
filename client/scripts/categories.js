@@ -30,6 +30,7 @@ var categorySearch = function(){
 };
 
 var storeLocalData = function(data){
+    //local storage
     var sessionString = data[0]._id;
   for (var i=1; i<data.length; i++){
       sessionString += "," + data[i]._id;
