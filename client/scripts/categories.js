@@ -30,12 +30,15 @@ var categorySearch = function(){
 };
 
 var storeLocalData = function(data){
+    //local storage
     var sessionString = data[0]._id;
   for (var i=1; i<data.length; i++){
       sessionString += "," + data[i]._id;
   }
     sessionStorage.setItem('store_ids', sessionString);
     var test = sessionStorage.getItem('store_ids');
+
+    console.log("Test of the local storage: ", test);
     window.location.replace('/assets/views/categorystorelist.html');
 };
 

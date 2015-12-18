@@ -4,7 +4,7 @@ var sgTransport = require('nodemailer-sendgrid-transport');
 var options = {
     auth: {
         // sendgrid_password api key  MIGHT NEED TO HIDE THIS KEY CHECK HEROKU CONFIG
-        api_key: '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'
+        api_key: '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'
     }
 };
 var mailer = nodemailer.createTransport(sgTransport(options));
@@ -35,7 +35,7 @@ exports.sendMail = function(req, res) {
     //what will be sending in the email
     //NEED TO CHANGE EMAIL TO COSCIOUS SHOPPING EMAIL UPON COMPLETION TEST!!!!!!!
     var email = {
-        to: ['karl@reclaimedartcraftsman.com'],
+        to: ['karl.hass15@gmail.com'],
         from: data.email,
         subject: 'Message from ' + data.name,
         text: data.message

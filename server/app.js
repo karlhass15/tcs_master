@@ -55,6 +55,7 @@ app.use('/editstore', editstore);
 app.use('/contact', contact);
 app.use('/addStore', store);
 app.use('/categorysearch', category);
+
 app.use('/categorylist', categorylist);
 app.use('/', index);
 

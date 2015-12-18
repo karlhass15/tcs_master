@@ -20,7 +20,8 @@ $(document).ready(function(){
 var getStores = function(){
         $.ajax({
             method: 'GET',
-            url: '/categoryist',
+
+            url: '/categorylist',
             data: {"paramArray": storeIdArray},
             success: function(data){
                 console.log("The response data: ", data);
