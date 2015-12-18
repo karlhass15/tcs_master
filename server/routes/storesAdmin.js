@@ -2,7 +2,7 @@ var express = require('express');
 var storesAdminrouter = express.Router();
 var path = require('path');
 var mongoose = require('mongoose');
-var Store = require('../models/store');
+var Store = require('./store');
 
 
 //NEED TO UP DATE TO OR \\ CALL FOR LIVE VERSION ON HEROKU: !!!!!!!!!!!!!!!!
@@ -13,15 +13,18 @@ var Store = require('../models/store');
 
 
     storesAdminrouter.get('/', function(req,res){
-        var query = req.query.stores;
-console.log("here", query);
-        if(query){
-            Store.find({}, function(err, data){
-                if(err){
+
+        //passing venue as key from manually created object in client
+        var query = req.query.venue;
+console.log("query value", query);
+        if(query) {
+            Store.find({"name": query}, function (err, data) {
+                if (err) {
                     console.log("ERROR! : ", err);
                 }
                 res.send(data);
             });
+
         } else {
             Store.find({}, function(err, data){
                 if(err){

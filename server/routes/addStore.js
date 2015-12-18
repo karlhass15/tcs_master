@@ -1,7 +1,7 @@
 //Variable declarations
 var express = require('express');
 var router = express.Router();
-var Store = require('../models/store');
+var Store = require('./store');
 
 //Adding a new store to the Database
 router.post('/', function(req,res){
@@ -28,10 +28,11 @@ router.post('/', function(req,res){
 //Search Criteria for a hard-coded category. Do we want to move this to a new route? Need to add variables for geolocation and entered
 //category search criteria
 router.get('/', function(req, res){
-    //console.log("Here is the req.query: ", req.query);
+    console.log("Here is the req.query: ", req.query);
     //for (var i=0; i<req.query.paramArray.length; i ++){
     //    req.query.paramArray[i].replace("\", '');
     //}
+
     Store.aggregate({$geoNear: {near: [parseFloat(req.query.lng), parseFloat(req.query.lat)], distanceField: "distance", spherical: true, limit: 3 }},
      function(err, data) {
         if (err) {
