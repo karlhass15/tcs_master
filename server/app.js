@@ -11,6 +11,8 @@ var index = require('./routes/index');
 var store =  require('./routes/addStore');
 var Stores = require('./routes/storesAdmin');
 var Delete =require('./routes/storesAdmin');
+var editstore =require('./routes/storesAdmin');
+
 var category = require('./routes/categorySearch');
 
 
@@ -45,6 +47,7 @@ mongoose.connect(process.env.MONGOLAB_URI ||  'mongodb://localhost:27017/conscio
 //});
 app.use('/deletestores', Delete);
 app.use('/getstores', Stores);
+app.use('/editstore', editstore);
 app.use('/contact', contact);
 app.use('/addStore', store);
 app.use('/categorysearch', category);

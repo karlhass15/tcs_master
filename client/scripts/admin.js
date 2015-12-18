@@ -5,7 +5,7 @@ $(document).ready(function() {
         //updateDOM(data);
 
         $("#storeContainer").on('click', '.delete', deleteStore);
-
+        $("#storeContainer").on('click', '.edit', editStore);
              getStores();
                 updateDOM();
 
@@ -28,7 +28,7 @@ $(document).ready(function() {
                 var el = "<div class='well col-md-3'>" +
                     "<p>" + data[i].name + "</p>" +
                     "<button class='btn btn-danger delete' data-id='" + data[i]._id + "'>Delete</button>" +
-                    "<button class='btn btn-primary edit'>Edit</button>" +
+                    "<button class='btn btn-primary edit' data-id='" + data[i]._id + "'>Edit</button>" +
                     "</div>";
                 $("#storeContainer").append(el);
             }
@@ -61,6 +61,23 @@ $(document).ready(function() {
         })
     }
 
+
+function editStore() {
+    var editStoreId = {"id": $(this).data("id")};
+        //{"name": $(this).data("name")}];
+
+    console.log(editStoreId);
+
+    $.ajax({
+        type: "post",
+        url: "/editstore",
+        data: editStoreId,
+        success: function (data) {
+            console.log("Here is the /editstore data", data);
+            //clearPage();
+        }
+    });
+}
     //
     //function findStore(data) {
     //    $('#storeAdminSearch').keypress(function (e) {
